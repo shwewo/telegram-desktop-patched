@@ -26,6 +26,10 @@
                 url = "https://raw.githubusercontent.com/Layerex/telegram-desktop-patches/master/0004-Disable-accounts-limit.patch";
                 hash = "sha256-PZWCFdGE/TTJ1auG1JXNpnTUko2rCWla6dYKaQNzreg=";
               })
+              (pkgs.fetchpatch {
+                url = "https://raw.githubusercontent.com/Layerex/telegram-desktop-patches/3f45a43ef59b5706bfe71f9fcdea371894904c13/0005-Add-option-to-disable-stories.patch";
+                hash = "sha256-b0Oy15Ppp1dHrTfoq+AGwICIeoQS1F0+ZqGbbfaitHk=";
+              })
             ];
           });
           default = telegram-desktop-patched;
