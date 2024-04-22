@@ -11,9 +11,13 @@
         packages = rec {
           telegram-desktop-patched = pkgs.telegram-desktop.overrideAttrs (oldAttrs: {
             patches = oldAttrs.patches ++ [
+              # (pkgs.fetchpatch {
+              #   url = "https://raw.githubusercontent.com/Layerex/telegram-desktop-patches/master/0001-Disable-sponsored-messages.patch";
+              #   hash = "sha256-o2Wxyag6hpEDgGm8FU4vs6aCpL9aekazKiNeZPLI9po=";
+              # })
               (pkgs.fetchpatch {
-                url = "https://raw.githubusercontent.com/Layerex/telegram-desktop-patches/master/0001-Disable-sponsored-messages.patch";
-                hash = "sha256-o2Wxyag6hpEDgGm8FU4vs6aCpL9aekazKiNeZPLI9po=";
+                url = "https://raw.githubusercontent.com/msva/mva-overlay/master/net-im/telegram-desktop/files/patches/0/0007_std-optional_sponsored.patch";
+                hash = "sha256-tiURlUmvjCtThLqYnvcDhfmpzfQOvF4PJ4e7CIND9hg=";
               })
               (pkgs.fetchpatch {
                 url = "https://raw.githubusercontent.com/Layerex/telegram-desktop-patches/master/0002-Disable-saving-restrictions.patch";
