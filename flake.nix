@@ -11,30 +11,11 @@
         packages = rec {
           telegram-desktop-patched = pkgs.telegram-desktop.overrideAttrs (oldAttrs: {
             patches = oldAttrs.patches ++ [
-              # (pkgs.fetchpatch {
-              #   url = "https://raw.githubusercontent.com/Layerex/telegram-desktop-patches/master/0001-Disable-sponsored-messages.patch";
-              #   hash = "sha256-o2Wxyag6hpEDgGm8FU4vs6aCpL9aekazKiNeZPLI9po=";
-              # })
-              (pkgs.fetchpatch {
-                url = "https://raw.githubusercontent.com/msva/mva-overlay/master/net-im/telegram-desktop/files/patches/0/0007_std-optional_sponsored.patch";
-                hash = "sha256-tiURlUmvjCtThLqYnvcDhfmpzfQOvF4PJ4e7CIND9hg=";
-              })
-              (pkgs.fetchpatch {
-                url = "https://raw.githubusercontent.com/Layerex/telegram-desktop-patches/master/0002-Disable-saving-restrictions.patch";
-                hash = "sha256-sQsyXlvhXSvouPgzYSiRB8ieICo3GDXWH5MaZtBjtqw=";
-              })
-              (pkgs.fetchpatch {
-                url = "https://raw.githubusercontent.com/Layerex/telegram-desktop-patches/master/0003-Disable-invite-peeking-restrictions.patch";
-                hash = "sha256-8mJD6LOjz11yfAdY4QPK/AUz9o5W3XdupXxy7kRrbC8="; 
-              })
-              (pkgs.fetchpatch {
-                url = "https://raw.githubusercontent.com/Layerex/telegram-desktop-patches/master/0004-Disable-accounts-limit.patch";
-                hash = "sha256-PZWCFdGE/TTJ1auG1JXNpnTUko2rCWla6dYKaQNzreg=";
-              })
-              (pkgs.fetchpatch {
-                url = "https://raw.githubusercontent.com/Layerex/telegram-desktop-patches/3f45a43ef59b5706bfe71f9fcdea371894904c13/0005-Add-option-to-disable-stories.patch";
-                hash = "sha256-b0Oy15Ppp1dHrTfoq+AGwICIeoQS1F0+ZqGbbfaitHk=";
-              })
+              ./0001-Disable-sponsored-messages.patch
+              ./0002-Disable-saving-restrictions.patch
+              ./0003-Disable-invite-peeking-restrictions.patch
+              ./0004-Disable-accounts-limit.patch
+              ./0005-Add-option-to-disable-stories.patch
             ];
           });
           default = telegram-desktop-patched;
